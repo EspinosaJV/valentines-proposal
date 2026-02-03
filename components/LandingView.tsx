@@ -10,6 +10,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
   const [passcode, setPasscode] = useState("");
   const [error, setError] = useState(false);
 
+  // CONFIGURATION
   const SECRET_CODE = "0214";
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,17 +24,27 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
   };
 
   return (
-    // Simple black background for testing
-    <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-valentine-surface">
       
-      {/* Login Card */}
-      <div className="relative z-10 w-full max-w-md p-8 bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl mx-4">
+      {/* 1. BACKGROUND IMAGES (Restored) */}
+      {/* Default: Mobile Image. md: Desktop Image. */}
+        <div className="absolute inset-0 z-0">
+            <div
+                className="
+                    absolute inset-0 bg-cover bg-center bg-[url('/assets/bg-mobile-collage.jpg')] md:bg-[url('/assets/bg-desktop-collage.jpg')]"
+            />
+            <div className="absolute inset-0 bg-valentine-brand/40 mix-blend-overlay md:bg-valentine-brand/30 md:mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
+      {/* 2. LOGIN CARD */}
+      <div className="relative z-10 w-full max-w-md p-8 bg-valentine-surface/90 border border-white/10 rounded-2xl shadow-2xl mx-4 backdrop-blur-md">
         
         <div className="text-center mb-10">
-          <h1 className="font-serif text-5xl text-rose-400 mb-2">
+          <h1 className="font-serif text-5xl text-valentine-brand mb-2 drop-shadow-lg">
             Project Valentine
           </h1>
-          <p className="text-gray-400 text-xs font-sans uppercase tracking-[0.2em]">
+          <p className="text-valentine-text/80 text-xs font-sans uppercase tracking-[0.2em]">
             Restricted Access
           </p>
         </div>
@@ -51,17 +62,18 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
               w-full bg-black/50 border-2 rounded-xl p-4 text-center text-white 
               placeholder-white/20 focus:outline-none transition-all 
               font-serif text-xl tracking-[0.5em]
-              ${error ? "border-red-500" : "border-white/10 focus:border-rose-400"}
+              ${error ? "border-red-500 animate-pulse" : "border-white/10 focus:border-valentine-brand"}
             `}
           />
 
           <button
             type="submit"
-            className="w-full bg-rose-400 text-white font-bold py-4 rounded-xl hover:bg-rose-500 transition-all uppercase tracking-widest text-sm"
+            className="w-full bg-valentine-brand text-white font-bold py-4 rounded-xl shadow-[0_0_15px_rgba(192,128,129,0.3)] hover:shadow-[0_0_25px_rgba(192,128,129,0.6)] hover:scale-[1.02] transition-all active:scale-95 uppercase tracking-widest text-sm"
           >
             Unlock
           </button>
         </form>
+
       </div>
     </div>
   );
