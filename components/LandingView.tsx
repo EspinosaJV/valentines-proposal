@@ -24,7 +24,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-start md:items-center justify-center pt-20 md:pt-0 relative overflow-hidden bg-valentine-surface">
+    <div className="min-h-screen flex items-start md:items-center justify-center pt-3 md:pt-0 relative overflow-hidden bg-valentine-surface">
       
       {/* 1. BACKGROUND IMAGES (Restored) */}
       {/* Default: Mobile Image. md: Desktop Image. */}
@@ -38,9 +38,9 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
         </div>
 
         {/* 2. MAIN CONTENT (Title Card + Login Card) */}
-        <div className="relative z-10 w-[90%] md:w-full max-w-lg md:max-w-2xl mx-auto flex flex-col gap-8">
+        <div className="relative z-10 px-3 md:px-0 w-full md:w-full max-w-lg md:max-w-2xl mx-auto flex flex-col gap-8">
             {/* TOP Card: The Story */}
-            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 text-center shadow-2xl md:w-fit md:px-16 mx-auto">
+            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 text-center shadow-2xl md:w-fit md:px-16 mx-auto w-full">
                 <h1
                     className="font-bold text-3xl md:text-4xl text-white uppercase tracking-widest leading-tight drop-shadow-md whitespace-normal md:whitespace-nowrap"
                     style={{ fontFamily: '"Playfair Display", serif' }}
