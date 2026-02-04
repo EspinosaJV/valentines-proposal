@@ -16,10 +16,10 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (passcode.toLowerCase() === SECRET_CODE) {
-      onCorrectPassword();
+        onCorrectPassword();
     } else {
-      setError(true);
-      setTimeout(() => setError(false), 500);
+        setError(true);
+        setTimeout(() => setError(false), 2000);
     }
   };
 
