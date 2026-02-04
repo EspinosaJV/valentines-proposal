@@ -24,7 +24,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-start justify-center pt-24 md:pt-32 relative overflow-hidden bg-valentine-surface">
+    <div className="min-h-screen flex items-start md:items-center justify-center pt-20 md:pt-0 relative overflow-hidden bg-valentine-surface">
       
       {/* 1. BACKGROUND IMAGES (Restored) */}
       {/* Default: Mobile Image. md: Desktop Image. */}
@@ -38,23 +38,22 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
         </div>
 
         {/* 2. MAIN CONTENT (Title Card + Login Card) */}
-        <div className="relative z-10 w-full max-w-lg mx-4 flex flex-col gap-10">
-            {/* TOP CARD: The Story */}
-            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 text-center shadow-2xl">
-                {/* Title - Playfair Display, One Line */}
+        <div className="relative z-10 w-[90%] md:w-full max-w-lg md:max-w-2xl mx-auto flex flex-col gap-8">
+            {/* TOP Card: The Story */}
+            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 text-center shadow-2xl md:w-fit md:px-16 mx-auto">
                 <h1
-                    className="font-bold text-2xl md:text-3xl text-white uppercase tracking-widest leading-none drop-shadow-md whitespace-nowrap"
+                    className="font-bold text-3xl md:text-4xl text-white uppercase tracking-widest leading-tight drop-shadow-md whitespace-normal md:whitespace-nowrap"
                     style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                    The JV & Jem Story
+                    The JV & Jem <br className="md:hidden" /> Story
                 </h1>
 
                 {/* Pink Pill Separator */}
                 <div className="w-full h-2 bg-[#C08081] rounded-full my-4 shadow-md"></div>
 
-                {/* Subtitle - Lato */}
+                {/* Subtitle */}
                 <p
-                    className="text-white.80 text-sm tracking-wider"
+                    className="text-white/80 text-lg md:text-xl tracking-wider"
                     style={{ fontFamily: '"Lato", sans-serif' }}
                 >
                     The Most Wonderful Babi
@@ -75,7 +74,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
                 <img 
                     src="/assets/desktop-left-heart-shape-icon.png"
                     alt="Left Heart Decoration"
-                    className="hidden md:block absolute -top-16 -left-16 w-36 h-36 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"
+                    className="hidden md:block absolute -top-32 -left-32 w-64 h-64 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"
                 />
 
                 {/* RIGHT HEART */}
@@ -89,7 +88,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
                 <img
                     src="/assets/desktop-right-heart-shape-icon.png"
                     alt="Right Heart Decoration"
-                    className="hidden md:block absolute -top-16 -right-16 w-36 h-36 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl"
+                    className="hidden md:block absolute -top-32 -right-32 w-64 h-64 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl"
                 />
 
                 {/* Title Text Content */}
@@ -111,7 +110,8 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
                                 setError(false);
                             }}
                             placeholder=""
-                            className="w-full h-full bg-transparent text-center text-white text-4xl font-serif tracking-[0.5em] placeholder-white/50 focus:outline-none z-10"
+                            className="w-full h-full bg-transparent text-center text-white text-4xl tracking-[0.5em] placeholder-white/50 focus:outline-none z-10"
+                            style={{ fontFamily: '"Lato", sans-serif' }}
                         />
                     </div>
                     {/* Error Message */}
@@ -120,7 +120,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
                     {/*Submit Button */}
                     <button
                         type="submit"
-                        className="bg-[#C08081] text-white font-bold py-3 px-10 rounded-lg shadow-lg hover:bg-[#a36b6c] transition-all uppercase tracking-widest text-sm"
+                        className="bg-[#C08081] text-white font-bold py-2 px-7 rounded-lg shadow-lg hover:bg-[#a36b6c] transition-all uppercase tracking-widest text-xl"
                         style={{ fontFamily: '"Lato", sans-serif' }}
                     >
                         Submit
