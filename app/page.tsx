@@ -35,7 +35,11 @@ export default function Home() {
 
         {/* Floating Heart Animation */}
         <div className="relative z-10 animate-bounce mb-6">
-          <span className="text-6xl">❤️</span>
+          <img
+            src="/assets/center-heart-icon.png"
+            alt="Loading Heart"
+            className="w-24 h-24 object-contain drop-shadow-xl"
+          />
         </div>
 
         {/*Main Text */}
@@ -61,11 +65,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#1E1E1E] text-white">
       {/* <GalleryView /> */}
-
-      {/*Temporary placeholder content */}
-      <div className="flex items-center justify-center h-screen">
-        <h1 className="text-3xl">Gallery Component Goes Here</h1>
-      </div>
     </main>
   );
 }
