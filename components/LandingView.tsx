@@ -114,16 +114,27 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
                             style={{ fontFamily: '"Lato", sans-serif' }}
                         />
                     </div>
+
+                    {/* Hint Text */}
+                    <p
+                        className="text-white/80 text-sm md:text-base -mt-2 text-center"
+                        style={{ fontFamily: '"Lato", sans-serif' }}
+                    >
+                        If 0214 is Valentines Day, our Anniversary is...
+                    </p>
+                    
                     {/* Error Message */}
-                    {error && <p className="text-red-400 text-sm font-bold animate-pulse">INCORRECT PASSCODE</p>}
+                    {error && <p className="text-red-400 text-sm font-bold animate-pulse">wrong answer babi! 😡</p>}
 
                     {/*Submit Button */}
                     <button
                         type="submit"
-                        className="bg-[#C08081] text-white font-bold py-2 px-7 rounded-lg shadow-lg hover:bg-[#a36b6c] transition-all uppercase tracking-widest text-xl"
+                        className="
+                            bg-[#C08081] text-white font-bold py-3 px-10 rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:bg-[#d48a8b] hover:scale-105 hover:-translate-y-1 hover:shadow-[0_10px_20px_-10px_rgba(192,128,129,0.7)] active:scale-95 active:shadow-inner uppercase tracking-widest text-xl
+                        "
                         style={{ fontFamily: '"Lato", sans-serif' }}
                     >
-                        Submit
+                        <span className="ml-2 inline-block transition-transform group-hover:animate-pulse">Submit</span>
                     </button>
                 </form>
             </div>
