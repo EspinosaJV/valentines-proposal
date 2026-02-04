@@ -24,8 +24,8 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-start md:items-center justify-center pt-3 md:pt-0 relative overflow-hidden bg-valentine-surface">
-      
+    <div className="min-h-screen flex items-start md:items-center justify-center pt-3 pb-3 md:pt-0 relative overflow-hidden bg-valentine-surface">
+    
       {/* 1. BACKGROUND IMAGES (Restored) */}
       {/* Default: Mobile Image. md: Desktop Image. */}
         <div className="absolute inset-0 z-0">
@@ -38,7 +38,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
         </div>
 
         {/* 2. MAIN CONTENT (Title Card + Login Card) */}
-        <div className="relative z-10 px-3 md:px-0 w-full md:w-full max-w-lg md:max-w-2xl mx-auto flex flex-col gap-8">
+        <div className="relative z-10 px-3 md:px-0 w-full md:w-full max-w-lg md:max-w-2xl mx-auto flex flex-col gap-3">
             {/* TOP Card: The Story */}
             <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 text-center shadow-2xl md:w-fit md:px-16 mx-auto w-full">
                 <h1
@@ -61,7 +61,7 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
             </div>
 
             {/* BOTTOM CARD: The Login */}
-            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-8 shadow-2xl">
+            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
                 {/* DECORATIVE HEARTS */}
                 {/* LEFT HEART */}
                 {/* Mobile */}
@@ -93,15 +93,15 @@ export default function LandingView({ onCorrectPassword }: LandingProps) {
 
                 {/* Title Text Content */}
                 <h2
-                    className="text-3xl font-bold text-white text-center mb-6 leading-tight whitespace-nowrap"
+                    className="text-3xl font-bold text-white text-center mb-4 md:mb-6 leading-tight md:whitespace-nowrap"
                     style={{ fontFamily: '"Playfair Display", serif' }}
                 >
                     When Is Our Anniversary?
                 </h2>
 
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6 items-center">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6 items-center">
                     {/* INPUT BOX */}
-                    <div className="relative w-full h-32 bg-[#C08081] rounded-xl flex items-center justify-center shadow-inner overflow-hidden">
+                    <div className="relative w-full h-48 md:h-32 bg-[#C08081] rounded-xl flex items-center justify-center shadow-inner overflow-hidden">
                         <input
                             type="text"
                             value={passcode}
