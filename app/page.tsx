@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import LandingView from "../components/LandingView";
-// import GalleryView from "../components/GalleryView";
+import GalleryView from "../components/GalleryView";
 
 export default function Home() {
   const [viewState, setViewState] = useState<"login" | "loading" | "gallery">("login");
@@ -79,7 +79,7 @@ export default function Home() {
   // SHOW GALLERY
   return (
     <main className="min-h-screen bg-[#1E1E1E] text-white">
-      {/* <GalleryView /> */}
+      <GalleryView />
     </main>
   );
 }
