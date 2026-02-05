@@ -42,18 +42,18 @@ export default function Home() {
         <div className="relative z-10 px-4 w-full md:w-fit">
             
             {/* THIS IS THE CARD CONTAINER */}
-            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-10 md:p-12 shadow-2xl flex flex-col items-center text-center gap-6">
+            <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col items-center text-center gap-3">
                 
                 {/* FLOATING HEART ANIMATION */}
                 <img 
                     src="/assets/center-heart-icon.png" 
                     alt="Loading Heart" 
-                    className="w-24 h-24 object-contain animate-bounce drop-shadow-xl"
+                    className="w-16 h-16 object-contain animate-bounce drop-shadow-xl"
                 />
 
                 {/* MAIN TEXT */}
                 <h1 
-                    className="font-bold text-3xl md:text-5xl text-white tracking-widest uppercase drop-shadow-md leading-tight whitespace-nowrap" 
+                    className="font-bold text-2xl md:text-5xl text-white tracking-widest uppercase drop-shadow-md leading-tight whitespace-nowrap" 
                     style={{ fontFamily: '"Playfair Display", serif' }}
                 >
                     Access Granted
