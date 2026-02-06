@@ -52,16 +52,25 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                 {/* MIDDLE CARD CAROUSEL */}
                 <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-4 md:p-8 shadow-2xl flex flex-col items-center justify-center gap-4">
                     {/* DECORATIVE HEARTS */}
-                    {/* TOP LEFT */}
-                    <img src="/assets/mobile-left-heart-shape-icon.png" className="absolute -top-6 -left-6 w-16 h-16 md:w-24 md:h-24 animate-bounce z-20"/>
-                    {/* TOP RIGHT */}
-                    <img src="/assets/mobile-right-heart-shape-icon.png" className="absolute -top-6 -right-6 w-16 h-16 md:w-24 md:h-24 animate-bounce z-20"/>
+                    {/* LEFT HEART */}
+                    {/* MOBILE VIEW */}
+                    <img src="/assets/mobile-left-heart-shape-icon.png" alt="Left Heart Decoration" className="block md:hidden absolute -top-12 -left-8 w-28 h-28 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"/>
+
+                    {/* DESKTOP VIEW */}
+                    <img src="/assets/desktop-left-heart-shape-icon.png" alt="Left Heart Decoration" className="hidden md:block absolute -top-32 -left-32 w-64 h-64 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"/>
+
+                    {/* RIGHT HEART */}
+                    {/* MOBILE VIEW */}
+                    <img src="/assets/mobile-right-heart-shape-icon.png" alt="Right Heart Decoration" className="block md:hidden absolute -top-12 -right-8 w-28 h-28 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl"/>
+
+                    {/* DESKTOP VIEW */}
+                    <img src="/assets/desktop-right-heart-shape-icon.png" alt="Right Heart Decoration" className="hidden md:block absolute -top-32 -right-32 w-64 h-64 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl"/>
 
                     {/* CAROUSEL AREA */}
                     <div className="flex items-center justify-center gap-4 w-full">
                         {/* PREVIOUS BUTTON (DESKTOP) */}
-                        <button onClick={prevSlide} className="hidden md:flex bg-[#C08081] p-3 rounded-full hover:scale-110 transition text-white">
-                            ◀
+                        <button onClick={prevSlide} className="hidden md:block hover:scale-110 transition-transform duration-300 focus:outline-none">
+                            <img src="/assets/desktop-left-arrow-button.png" alt="Previous" className="w-16 h-16 object-contain"/>
                         </button>
 
                         {/* IMAGE FRAME */}
@@ -75,9 +84,9 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                             </div>
                         </div>
 
-                        {/* NEXT BUTTON (DESKTOP) */}
-                        <button onClick={nextSlide} className="hidden md:flex bg-[#C08081] p-3 rounded-full hover:scale-110 transition text-white">
-                            ▶
+                        {/* NEXT BUTTON DESKTOP */}
+                        <button onClick={nextSlide} className="hidden md:block hover:scale-110 transition-transform duration-300 focus:outline-none">
+                            <img src="/assets/desktop-right-arrow-button.png" alt="Next" className="w-16 h-16 object-contain"/>
                         </button>
                     </div>
 
