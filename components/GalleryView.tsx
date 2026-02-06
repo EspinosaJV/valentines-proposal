@@ -24,8 +24,8 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-valentine-surface p-4">
-            {/* BACKGROUND */}
+        <div className="min-h-screen md:h-screen flex flex-col items-center justify-center relative overflow-hidden bg-valentine-surface p-4">
+        {/* BACKGROUND */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-cover bg-center bg-[url('/assets/bg-mobile-collage.jpg')] md:bg-[url('/assets/bg-desktop-collage.jpg')]" />
                 <div className="absolute inset-0 bg-valentine-brand/40 mix-blend-overlay md:bg-valentine-brand/30 md:mix-blend-multiply"></div>
@@ -33,14 +33,18 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
             </div>
 
             {/* MAIN GRID CONTAINER */}
-            <div className="relative z-10 w-full max-w-5xl flex flex-col gap-4 md:gap-6 h-full justify-center">
+            <div className="relative z-10 w-full max-w-4xl flex flex-col gap-3 md:gap-4 h-full justify-center md:justify-start md:pt-20">
                 {/* TOP CARD TITLE */}
-                <div className="bg-[#1E1E1E] border border-white/10 rounded-2xl p-4 md:p-6 text-center shadow-2xl mx-auto w-full md:w-2/3">
-                    <h1 className="font-bold text-2xl md:text-4xl text-white uppercase tracking-widest" style={{ fontFamily: '"Playfair", serif' }}>
-                        The JV & Jem Story
+                <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 text-center shadow-2xl md:w-fit md:px-16 mx-auto w-full">
+                    <h1 className="font-bold text-3xl md:text-4xl text-white uppercase tracking-widest leading-tight drop-shadow-md whitespace-normal md:whitespace-nowrap" style={{ fontFamily: '"Playfair Display", serif' }}>
+                        The JV & Jem <br className="md:hidden" /> Story
                     </h1>
-                    <div className="w-full h-1 bg-[#C08081] rounded-full my-2 shadow-md"></div>
-                    <p className="text-white/80 text-sm md:text-lg tracking-wider" style={{ fontFamily: '"Lato", sans-serif' }}>
+
+                    {/* Pink Pill Separator */}
+                    <div className="w-fill h-2 bg-[#C08081] rounded-full my-4 shadow-md"></div>
+
+                    {/* Subtitle */}
+                    <p className="text-white/80 text-lg md:text-xl tracking-wider" style={{ fontFamily: '"Lato", sans-serif' }}>
                         The Most Wonderful Babi
                     </p>
                 </div>
@@ -61,11 +65,11 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                         </button>
 
                         {/* IMAGE FRAME */}
-                        <div className="relative w-full md:w-96 aspect-[3/4] md:aspect-square bg-black/50 rounded-xl overflow-hidden border-4 border-[#C08081] shadow-inner">
+                        <div className="relative w-full md:w-auto md:h-[45vh] aspect-[3/4] bg-black/50 rounded-xl overflow-hidden border-4 border-[#C08081] shadow-inner">
                             <img src={photos[currentIndex]} alt="Memory" className="w-full h-full object-cover"/>
 
                             {/* MOBILE ONLY (TAP AREAS FOR NAVIGATION) */}
-                            <div className="md:hidden absolute inset-0 flex">
+                            <div className="md:hidden w-full mt-2">
                                 <div onClick={prevSlide} className="w-1/2 h-full"></div>
                                 <div onClick={nextSlide} className="w-1/2 h-full"></div>
                             </div>
@@ -87,8 +91,8 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                 </div>
 
                 {/* BOTTOM CARD TEXT STORY (DESKTOP ONLY) */}
-                <div className="hidden md:block bg-[#1E1E1E] border border-white/10 rounded-2xl p-6 shadow-2xl text-center">
-                    <p className="text-white/90 text-sm md:text-base leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: '"Lato", sans-serif' }}>
+                <div className="hidden md:block bg-[#1E1E1E] border border-white/10 rounded-2xl p-=4 shadow-2xl text-center w-full md:w-2/3 mx-auto">
+                    <p className="text-white/90 text-sm leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: '"Lato", sans-serif' }}>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sequi illo facilis reiciendis cumque saepe, eius commodi dicta et corrupti aperiam aliquam suscipit iure! Nihil deserunt minima voluptatem eos atque?
                     </p>
 
