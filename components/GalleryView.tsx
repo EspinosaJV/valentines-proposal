@@ -91,7 +91,7 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                     </div>
 
                     {/* MOBILE ONLY (CLICK HERE BUTTON) */}
-                    <div className="md:hjidden w-full mt-2">
+                    <div className="md:hidden w-full mt-2">
                         <button onClick={onContinue} className="w-full bg-[#C08081] text-white font-bold py-3 rounded-xl shadow-lg uppercase tracking-widest hover:bg-[#d48a8b] transition" style={{ fontFamily: '"Lato", sans-serif' }}
                         >
                             Click Here!
