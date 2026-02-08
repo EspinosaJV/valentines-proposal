@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const carouselData = [
     {
@@ -72,7 +73,9 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
 
                         {/* IMAGE FRAME (Kept height at 300px to ensure it fits in view) */}
                         <div className="relative w-full md:w-auto md:h-[300px] aspect-[3/4] bg-black/50 rounded-xl overflow-hidden border-4 border-[#C08081] shadow-inner mx-auto">
-                            <img src={carouselData[currentIndex].image} alt="Memory" className="w-full h-full object-cover"/>
+                            <AnimatePresence mode="wait">
+                                <motion.img key={currentIndex} src={carouselData[currentIndex].image} alt="Memory" className="w-full h-full object-cover" initial= {{ opacity: 0, scale: 0.9, rotate:-2 }} animate = {{ opacity: 1, scale: 1, rotate: 0 }} exit={{ opacity: 0, scale: 0.9, rotate: 2 }} transition={{ duration: 0.4, ease: "easeInOut" }}/>
+                            </AnimatePresence>
                             
                             {/* Mobile Tap Areas */}
                             <div className="md:hidden w-full mt-2">
@@ -97,9 +100,11 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
 
                 {/* --- BOTTOM CARD (Text Story) --- */}
                 <div className="hidden md:flex flex-col items-center justify-center bg-[#1E1E1E] border border-white/10 rounded-3xl p-4 px-8 shadow-2xl text-center w-full max-w-2xl shrink-0">
-                <p className="text-white/90 text-base leading-relaxed font-light" style={{ fontFamily: '"Lato", sans-serif' }}>
-                    {carouselData[currentIndex].text}
-                </p>
+                <AnimatePresence mode="wait">
+                    <motion.p key={currentIndex} className="text-white/90 text-base leading-relaxed font-light" style={{ fontFamily: '"Lato", sans-serif' }} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }}>
+                        {carouselData[currentIndex].text}
+                    </motion.p>
+                </AnimatePresence>
             </div>
         </div>
     </div>
