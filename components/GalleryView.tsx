@@ -75,14 +75,14 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                         {/* IMAGE FRAME */}
                         <div className="relative w-full md:w-auto md:h-[300px] aspect-[3/4] bg-black/50 rounded-xl overflow-hidden border-4 border-[#C08081] shadow-inner mx-auto">
                             <AnimatePresence mode="wait">
-                                <motion.img key={currentIndex} src={carouselData[currentIndex].image} alt="Memory" className="w-full h-full object-cover" initial= {{ opacity: 0, scale: 0.9, rotate:-2 }} animate = {{ opacity: 1, scale: 1, rotate: 0 }} exit={{ opacity: 0, scale: 0.9, rotate: 2 }} transition={{ duration: 0.4, ease: "easeInOut" }}/>
+                                <motion.img key={currentIndex} src={carouselData[currentIndex].image} alt="Memory" className="w-full h-full object-cover" initial= {{ opacity: 0, scale: 0.9, rotate:-2 }} animate = {{ opacity: 1, scale: 1, rotate: 0 }} exit={{ opacity: 0, scale: 0.9, rotate: 2 }} transition={{ duration: 0.4, ease: "easeInOut" }} drag="x" dragConstraints= {{ left: 0, right: 0 }} dragElastic={1} onDragEnd={(e, { offset, velocity }) => { const swipeConfidenceThreshold = 10000; const swipePower = Math.abs(offset.x) * velocity.x; 
+                                    if (swipePower < -swipeConfidenceThreshold || offset.x < -50) {
+                                        nextSlide();
+                                    } else if (swipePower > swipeConfidenceThreshold || offset.x > 50) {
+                                        prevSlide();
+                                    }
+                                }}/>
                             </AnimatePresence>
-                            
-                            {/* Mobile Tap Areas */}
-                            <div className="md:hidden w-full mt-2">
-                                <div onClick={prevSlide} className="w-1/2 h-full"></div>
-                                <div onClick={nextSlide} className="w-1/2 h-full"></div>
-                            </div>
                         </div>
 
                         {/* RIGHT BUTTON */}
