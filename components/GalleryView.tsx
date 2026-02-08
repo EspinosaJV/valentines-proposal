@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 
-const photos = [
-    "/assets/photo-carousel-first-pic.jpg",
-    "/assets/photo-carousel-second-pic.jpg",
-    "/assets/photo-carousel-third-pic.jpg",
+const carouselData = [
+    {
+        image: "/assets/photo-carousel-first-pic.jpg",
+        text: "Our first year together, the year where it all started, 2023. Do you remember our loving and humble beginnings? We learned a lot about each other — both what we loved and didn't love about each other but in the end, we were so happy with each other."
+    },
+    {
+        image: "/assets/photo-carousel-second-pic.jpg",
+        text: "Our second year together, this would technically be our first whole year together start to finish. 2024 was the year we learned to experiment with our relationship and figure out how we can further evolve just merely loving each other. This year was a rollercoaster as we had our highest highs but also our lowest lows but in the end, we stuck through it, together."
+    },
+    {
+        image: "/assets/photo-carousel-third-pic.jpg",
+        text: "Our final year of college and we spent it together. 2025 was especially difficult as it was the year that we had to start working on our dreams as young adults independently which meant that we did not have a lot of time for each other, but it was also significant as it was also the year we started dreaming about what we wanted for our future selves, our future relationship, together."
+    },
 ];
 
 interface GalleryProps {
@@ -16,11 +25,11 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
     const [currentIndex, setCurrentIndex ] = useState(0);
 
     const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % photos.length);
+        setCurrentIndex((prev) => (prev + 1) % carouselData.length);
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
+        ssetCurrentIndex((prev) => (prev - 1 + carouselData.length) % carouselData.length);
     };
 
     return (
@@ -63,7 +72,7 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
 
                         {/* IMAGE FRAME (Kept height at 300px to ensure it fits in view) */}
                         <div className="relative w-full md:w-auto md:h-[300px] aspect-[3/4] bg-black/50 rounded-xl overflow-hidden border-4 border-[#C08081] shadow-inner mx-auto">
-                            <img src={photos[currentIndex]} alt="Memory" className="w-full h-full object-cover"/>
+                            <img src={carouselData[currentIndex].image} alt="Memory" className="w-full h-full object-cover"/>
                             
                             {/* Mobile Tap Areas */}
                             <div className="md:hidden w-full mt-2">
@@ -88,12 +97,11 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
 
                 {/* --- BOTTOM CARD (Text Story) --- */}
                 <div className="hidden md:flex flex-col items-center justify-center bg-[#1E1E1E] border border-white/10 rounded-3xl p-4 px-8 shadow-2xl text-center w-full max-w-2xl shrink-0">
-                    <p className="text-white/90 text-base leading-relaxed font-light" style={{ fontFamily: '"Lato", sans-serif' }}>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sequi illo facilis reiciendis cumque saepe, eius commodi dicta et corrupti aperiam aliquam suscipit iure! Nihil deserunt minima voluptatem eos atque?
-                    </p>
-                </div>
-
+                <p className="text-white/90 text-base leading-relaxed font-light" style={{ fontFamily: '"Lato", sans-serif' }}>
+                    {carouselData[currentIndex].text}
+                </p>
             </div>
         </div>
+    </div>
     );
 }
