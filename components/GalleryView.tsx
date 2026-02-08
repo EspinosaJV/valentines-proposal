@@ -29,7 +29,7 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
     };
 
     const prevSlide = () => {
-        ssetCurrentIndex((prev) => (prev - 1 + carouselData.length) % carouselData.length);
+        setCurrentIndex((prev) => (prev - 1 + carouselData.length) % carouselData.length);
     };
 
     return (
