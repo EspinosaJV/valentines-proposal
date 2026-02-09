@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface TestViewProps {
-    onFinished: () => void;
+    onFinished: (result: string) => void;
 }
 
 const questions = [
@@ -58,20 +58,36 @@ const questions = [
 export default function TestView({ onFinished }: TestViewProps) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
+    const [answers, setAnswers] = useState<number[]>([]);
 
     const currentQ = questions[currentQuestionIndex];
 
     const handleSubmit = () => {
         if (selectedOption === null) return;
 
-        if (currentQuestionIndex < questions.length - 1) {
+        const newAnswers = [...answers, selectedOption];
+        setAnswers(newAnswers);
+
+        if (currentQuestionIndex < questions.length - 1){
             setCurrentQuestionIndex(prev => prev + 1);
             setSelectedOption(null);
         } else {
-            onFinished();
+            const counts = [0, 0, 0];
+            newAnswers.forEach(ans => counts[ans]++);
+
+            const maxCount = Math.max(...counts);
+
+            const winningIndex = counts.indexOf(maxCount);
+
+            let resultString = "";
+            if (winningIndex === 0) resultString = "Fancy Romantic Date";
+            else if (winningIndex === 1) resultString = "Relaxed Simple Date";
+            else resultString = "Adventure Date";
+
+            onFinished(resultString);
         }
     };
-
+    
     return (
         <div className="h-screen flex items-center justify-center relative overflow-hidden bg-valentine-surface">
         {/* BACKGROUND IMAGES */}

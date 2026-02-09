@@ -10,6 +10,8 @@ export default function Home() {
 
   const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test" | "success">("login");
 
+  const [finalDateIdea, setFinalDateIdea] = useState<string>("");
+
   const handleLoginSuccess = () => {
     setViewState("loading");
   };
@@ -90,15 +92,19 @@ export default function Home() {
   // TEST SCREEN
   if (viewState === "test") {
     return (
-      <TestView onFinished={() => setViewState("success")} />
+      <TestView onFinished={(result) => {
+        setFinalDateIdea(result);
+        setViewState("success");
+      }} />
     );
   }
 
   // SUCCESS SCREEN
   if (viewState === "success") {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <h1>Success View Coming Soon...</h1>
+      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-bold mb-4">It's decided!</h1>
+        <p className="text-2xl text-[#C08081]">{finalDateIdea}</p>
       </div>
     )
   }
