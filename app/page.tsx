@@ -5,10 +5,11 @@ import LandingView from "../components/LandingView";
 import GalleryView from "../components/GalleryView"; 
 import ProposalView from "../components/ProposalView";
 import TestView from "../components/TestView";
+import PreFinalView from "../components/PreFinalView";
 
 export default function Home() {
 
-  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test" | "success">("login");
+  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test" | "prefinal" | "success">("login");
 
   const [finalDateIdea, setFinalDateIdea] = useState<string>("");
 
@@ -94,8 +95,15 @@ export default function Home() {
     return (
       <TestView onFinished={(result) => {
         setFinalDateIdea(result);
-        setViewState("success");
+        setViewState("prefinal");
       }} />
+    );
+  }
+
+  // PREFINAL SCREEN
+  if (viewState === "prefinal") {
+    return (
+      <PreFinalView onNext={() => setViewState("success")} />
     );
   }
 
