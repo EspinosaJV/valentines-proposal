@@ -82,7 +82,7 @@ export default function TestView({ onFinished }: TestViewProps) {
             </div>
 
             {/* MAIN CONTENT */}
-            <div className="relative z-10 px-2 md:px-0 py-2 w-full md:w-full max-w-lg md:max-w-3xl mx-auto flex flex-col gap-3 md:gap-6 h-full">
+            <div className="relative z-10 px-2 md:px-0 py-2 w-full md:w-full max-w-lg md:max-w-3xl mx-auto flex flex-col gap-3 md:gap-6 h-full md:h-auto justify-center">
                 
                 {/* --- TOP CARD (FIXED) --- */}
                 {/* This is now an exact duplicate of the ProposalView Top Card */}
@@ -101,7 +101,7 @@ export default function TestView({ onFinished }: TestViewProps) {
                 </div>
 
                 {/* --- BOTTOM CARD (QUIZ CONTENT) --- */}
-                <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 md:p-12 shadow-2xl flex flex-col items-center justify-center text-center gap-8 flex-1 mb-auto w-full">
+                <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-6 md:p-12 shadow-2xl flex flex-col items-center justify-center text-center gap-8 flex-1 md:flex-none mb-auto md:mb-0 w-full md:min-h-[400px]">
                     
                     {/* DECORATIVE HEARTS MOBILE */}
                     <img src="/assets/mobile-left-heart-shape-icon.png" className="block md:hidden absolute -top-12 -left-4 w-24 h-24 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"/>
@@ -147,8 +147,16 @@ export default function TestView({ onFinished }: TestViewProps) {
                                             <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
                                         </svg>
                                         
-                                        {/* TEXT - White and Bigger */}
-                                        <span className={`text-lg md:text-xl font-medium leading-tight ${selectedOption === index ? "text-white" : "text-white/90"}`} style={{ fontFamily: '"Lato", sans-serif' }}>
+                                        {/* TEXT CONTENT */}
+                                        <span 
+                                            className={`text-lg md:text-xl font-medium leading-tight transition-colors duration-200
+                                                ${selectedOption === index 
+                                                    ? "text-[#C08081]"   /* Selected = Pink */
+                                                    : "text-white/90 group-hover:text-[#C08081]" /* Default = White, Hover = Pink */
+                                                }
+                                            `} 
+                                            style={{ fontFamily: '"Lato", sans-serif' }}
+                                        >
                                             {option}
                                         </span>
                                     </button>
