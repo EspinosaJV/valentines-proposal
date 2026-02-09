@@ -56,7 +56,7 @@ export default function ProposalView({ onNext }: ProposalProps) {
                     {/* BUTTON CONTAINER */}
                     <div className="relative mt-4">
                         {/* SLANTED NOTED */}
-                        <p className="absolute -top-8 -right-2 md:-right-50 text-white/80 text-sm md:text-lg rotate-6 whitespace-nowrap pointer-events-none" style={{ fontFamily: '"Lato", sans-serif', fontStyle: 'italic' }}>
+                        <p className="absolute pointer-events-none -bottom-8 left-0 right-0 text-center text-xs rotate-0 text-white/60 md:-top-8 md:bottom-auto md:left-auto md:-right-40 md:text-lg md:rotate-6" style={{ fontFamily: '"Lato", sans-serif', fontStyle: 'italic' }}>
                             * don't worry, you don't need notes!
                         </p>
 
