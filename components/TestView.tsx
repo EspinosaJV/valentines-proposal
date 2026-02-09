@@ -82,7 +82,7 @@ export default function TestView({ onFinished }: TestViewProps) {
             </div>
 
             {/* MAIN CONTENT */}
-            <div className="relative z-10 px-4 md:px-0 w-full md:w-full max-w-lg md:max-w-4xl mx-auto flex flex-col gap-6">
+            <div className="relative z-10 px-4 md:px-0 w-full md:w-full max-w-lg md:max-w-3xl mx-auto flex flex-col gap-6">
                 
                 {/* --- TOP CARD (FIXED) --- */}
                 {/* This is now an exact duplicate of the ProposalView Top Card */}
@@ -104,8 +104,8 @@ export default function TestView({ onFinished }: TestViewProps) {
                 <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col items-center justify-center text-center gap-6 min-h-[400px]">
                     
                     {/* DECORATIVE HEARTS DESKTOP */}
-                    <img src="/assets/desktop-left-heart-shape-icon.png" className="hidden md:block absolute -top-16 -left-16 w-32 h-32 object-contain animate-[pulse_4s_infinite] z-20 drop-shadow-xl opacity-80"/>
-                    <img src="/assets/desktop-right-heart-shape-icon.png" className="hidden md:block absolute -top-16 -right-16 w-32 h-32 object-contain animate-[pulse_5s_infinite] z-20 drop-shadow-xl opacity-80"/>
+                    <img src="/assets/desktop-left-heart-shape-icon.png" className="hidden md:block absolute -top-16 -left-16 w-32 h-32 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl" />
+                    <img src="/assets/desktop-right-heart-shape-icon.png" className="hidden md:block absolute -top-16 -right-16 w-32 h-32 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl" />
 
                     <AnimatePresence mode="wait">
                         <motion.div

@@ -66,8 +66,8 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                 <div className="relative bg-[#1E1E1E] border border-white/10 rounded-3xl p-4 md:px-20 md:py-6 shadow-2xl flex flex-col items-center justify-center gap-4 w-full md:w-fit shrink-0">
                     
                     {/* DECORATIVE HEARTS */}
-                    <img src="/assets/desktop-left-heart-shape-icon.png" className="hidden md:block absolute -top-16 -left-16 w-32 h-32 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl" />
-                    <img src="/assets/desktop-right-heart-shape-icon.png" className="hidden md:block absolute -top-16 -right-16 w-32 h-32 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl" />
+                    <img src="/assets/desktop-left-heart-shape-icon.png" className="hidden md:block absolute -top-16 -left-16 w-32 h-32 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"/>
+                    <img src="/assets/desktop-right-heart-shape-icon.png" className="hidden md:block absolute -top-16 -right-16 w-32 h-32 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl"/>
 
                     {/* CAROUSEL AREA */}
                     <div className="flex items-center justify-center w-full gap-12">
