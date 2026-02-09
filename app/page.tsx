@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import LandingView from "../components/LandingView";
 import GalleryView from "../components/GalleryView"; 
 import ProposalView from "../components/ProposalView";
+import TestView from "../components/TestView";
 
 export default function Home() {
 
-  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test">("login");
+  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test" | "success">("login");
 
   const handleLoginSuccess = () => {
     setViewState("loading");
@@ -84,6 +85,22 @@ export default function Home() {
       return (
         <ProposalView onNext={() => setViewState("test")} />
       );
+  }
+
+  // TEST SCREEN
+  if (viewState === "test") {
+    return (
+      <TestView onFinished={() => setViewState("success")} />
+    );
+  }
+
+  // SUCCESS SCREEN
+  if (viewState === "success") {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <h1>Success View Coming Soon...</h1>
+      </div>
+    )
   }
 
   return null;
