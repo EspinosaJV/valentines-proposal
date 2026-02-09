@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import LandingView from "../components/LandingView";
 import GalleryView from "../components/GalleryView"; 
+import ProposalView from "../components/ProposalView";
 
 export default function Home() {
 
-  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal">("login");
+  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test">("login");
 
   const handleLoginSuccess = () => {
     setViewState("loading");
@@ -81,9 +82,7 @@ export default function Home() {
   // PROPOSAL SCREEN
   if (viewState === "proposal") {
       return (
-        <div className="min-h-screen bg-black text-white flex items-center justify-center">
-            <h1>Proposal View Coming Soon...</h1>
-        </div>
+        <ProposalView onNext={() => setViewState("test")} />
       );
   }
 
