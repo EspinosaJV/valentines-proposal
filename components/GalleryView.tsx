@@ -16,6 +16,11 @@ const carouselData = [
         image: "/assets/photo-carousel-third-pic.jpg",
         text: "Our final year of college and we spent it together. 2025 was especially difficult as it was the year that we had to start working on our dreams as young adults independently which meant that we did not have a lot of time for each other, but it was also significant as it was also the year we started dreaming about what we wanted for our future selves, our future relationship, together."
     },
+    {
+        image: "",
+        text: "Do you want to continue this story...?",
+        isAction: true
+    },
 ];
 
 interface GalleryProps {
@@ -75,13 +80,62 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
                         {/* IMAGE FRAME */}
                         <div className="relative w-full md:w-auto md:h-[300px] aspect-[3/4] bg-black/50 rounded-xl overflow-hidden border-4 border-[#C08081] shadow-inner mx-auto">
                             <AnimatePresence mode="wait">
-                                <motion.img key={currentIndex} src={carouselData[currentIndex].image} alt="Memory" className="w-full h-full object-cover" initial= {{ opacity: 0, scale: 0.9, rotate:-2 }} animate = {{ opacity: 1, scale: 1, rotate: 0 }} exit={{ opacity: 0, scale: 0.9, rotate: 2 }} transition={{ duration: 0.4, ease: "easeInOut" }} drag="x" dragConstraints= {{ left: 0, right: 0 }} dragElastic={1} onDragEnd={(e, { offset, velocity }) => { const swipeConfidenceThreshold = 10000; const swipePower = Math.abs(offset.x) * velocity.x; 
-                                    if (swipePower < -swipeConfidenceThreshold || offset.x < -50) {
-                                        nextSlide();
-                                    } else if (swipePower > swipeConfidenceThreshold || offset.x > 50) {
-                                        prevSlide();
-                                    }
-                                }}/>
+                                {carouselData[currentIndex].isAction ? (
+                                    <motion.div
+                                        key="action-card"
+                                        className="w-full h-full flex items-center justify-center bg-[#2A2A2A]"
+                                        initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+                                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                                        exit={{ opacity: 0, scale: 0.9, rotate: 2 }}
+                                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                                        drag="x"
+                                        dragConstraints={{ left: 0, right: 0 }}
+                                        dragElastic={1}
+                                        onDragEnd={(e, { offset, velocity }) => {
+                                            const swipeConfidenceThreshold = 10000;
+                                            const swipePower = Math.abs(offset.x) * velocity.x;
+                                            if (swipePower < -swipeConfidenceThreshold || offset.x < -50) {
+                                                nextSlide();
+                                            } else if (swipePower > swipeConfidenceThreshold || offset.x > 50){
+                                                prevSlide();
+                                            }
+                                        }}
+                                    >
+                                        <button 
+                                            onClick={onContinue}
+                                            className="group bg-[#C08081] text-white font-bold py-3 px-10 rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:bg-[#d48a8b] hover:scale-105 hover:-translate-y-1 hover:shadow-[0_10px_20px_-10px_rgba(192,128,129,0.7)] active:scale-95 active:shadow-inner uppercase tracking-widest text-xl"
+                                            style={{ fontFamily: '"Lato", sans-serif' }}
+                                        >
+                                            <span className="inline-block transition-transform group-hover:animate-pulse">
+                                                GO NEXT..?
+                                            </span>
+                                        </button>
+                                    </motion.div>
+                                ) : (
+                                    /* EXISTING IMAGE SLIDE */
+                                    <motion.img
+                                        key={currentIndex}
+                                        src={carouselData[currentIndex].image}
+                                        alt="Memory"
+                                        className="w-full h-full object-cover"
+                                        initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+                                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                                        exit={{ opacity: 0, scale: 0.9, rotate: 2 }}
+                                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                                        drag="x"
+                                        dragConstraints={{ left: 0, right: 0 }}
+                                        dragElastic={1}
+                                        onDragEnd={(e, { offset, velocity }) => {
+                                            const swipeConfidenceThreshold = 10000;
+                                            const swipePower = Math.abs(offset.x) * velocity.x;
+                                            if (swipePower < -swipeConfidenceThreshold || offset.x < -50) {
+                                                nextSlide();
+                                            } else if (swipePower > swipeConfidenceThreshold || offset.x > 50) {
+                                                prevSlide();
+                                            }
+                                        }}
+                                    />
+                                )}
                             </AnimatePresence>
                         </div>
 
@@ -131,7 +185,7 @@ export default function GalleryView ({ onContinue }: GalleryProps) {
 
                         <div className="flex flex-col gap-4 mt-2">
                             <h3 className="text-[#C08081] font-bold text-xl tracking-widest uppercase" style={{ fontFamily: '"Playfair Display", serif' }}>
-                                Year {2023 + currentIndex}
+                                {carouselData[currentIndex].isAction ? "The Future" : `Year ${2023 + currentIndex}`}
                             </h3>
 
                             <p className="text-white/90 text-base leading-relaxed font-light" style={{ fontFamily: '"Lato", sans-serif' }}>
