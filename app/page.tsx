@@ -7,6 +7,7 @@ import ProposalView from "../components/ProposalView";
 import TestView from "../components/TestView";
 import PreFinalView from "../components/PreFinalView";
 import ValentineProposalView from "../components/ValentineProposalView";
+import DateOutcomeView from "../components/DateOutcomeView";
 
 export default function Home() {
 
@@ -118,11 +119,8 @@ export default function Home() {
   // SUCCESS SCREEN
   if (viewState === "success") {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-4">It's decided!</h1>
-        <p className="text-2xl text-[#C08081]">{finalDateIdea}</p>
-      </div>
-    )
+      <DateOutcomeView result={finalDateIdea} />
+    );
   }
 
   return null;
