@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import LandingView from "../components/LandingView";
@@ -15,11 +15,18 @@ import { view } from "framer-motion/client";
 export default function Home() {
 
   const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test" | "prefinal" | "valentine" | "success">("login");
-
   const [finalDateIdea, setFinalDateIdea] = useState<string>("");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleLoginSuccess = () => {
     setViewState("loading");
+
+    if (audioRef.current) {
+      audioRef.current.volume = 0.025;
+      audioRef.current.play().catch(error => {
+        console.log("Audio play failed:", error);
+      });
+    }
   };
 
   useEffect(() => {
@@ -92,17 +99,23 @@ export default function Home() {
   };
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={viewState}
-        initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        exit={{ opacity: 0, y: -20, filter: "blur(5px)" }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        className="w-full h-full"
-      >
-        {renderContent()}
-      </motion.div>
-    </AnimatePresence>
+    <>
+      <audio ref={audioRef} loop>
+        <source src="/assets/background-music.mp3" type="audio/mp3"/>
+      </audio>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={viewState}
+          initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -20, filter: "blur(5px)" }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="w-full h-full"
+        >
+          {renderContent()}
+        </motion.div>
+      </AnimatePresence>
+    </>
   );
 }
