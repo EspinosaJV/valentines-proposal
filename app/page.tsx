@@ -6,10 +6,11 @@ import GalleryView from "../components/GalleryView";
 import ProposalView from "../components/ProposalView";
 import TestView from "../components/TestView";
 import PreFinalView from "../components/PreFinalView";
+import ValentineProposalView from "../components/ValentineProposalView";
 
 export default function Home() {
 
-  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test" | "prefinal" | "success">("login");
+  const [viewState, setViewState] = useState<"login" | "loading" | "gallery" | "proposal" | "test" | "prefinal" | "valentine" | "success">("login");
 
   const [finalDateIdea, setFinalDateIdea] = useState<string>("");
 
@@ -103,10 +104,17 @@ export default function Home() {
   // PREFINAL SCREEN
   if (viewState === "prefinal") {
     return (
-      <PreFinalView onNext={() => setViewState("success")} />
+      <PreFinalView onNext={() => setViewState("valentine")} />
     );
   }
 
+  // VALENTINE SCREEN
+  if (viewState === "valentine") {
+    return (
+      <ValentineProposalView onNext={() => setViewState("success")} />
+    );
+  }
+  
   // SUCCESS SCREEN
   if (viewState === "success") {
     return (

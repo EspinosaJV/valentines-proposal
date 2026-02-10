@@ -55,7 +55,7 @@ export default function PreFinalView({ onNext }: PreFinalProps) {
                 {/* BUTTON CONTAINER */}
                 <div className="relative mt-4">
                     {/* SLANTED NOTE */}
-                    <p className="absolute pointer-events-none -bottom-8 left-0 right-0 text-center text-xs rotate-0 text-white/60 md:-top-8 md:bottom-auto md:left-auto md:-right-40 md:text-lg md:rotate-6" style={{ fontFamily: '"Lato", sans-serif', fontStyle: 'italic' }}>
+                    <p className="absolute pointer-events-none top-full mt-4 left-0 right-0 text-center text-xs rotate-0 text-white/60 md:mt-0 md:-top-8 md:bottom-auto md:left-auto md:-right-40 md:text-lg md:rotate-6" style={{ fontFamily: '"Lato", sans-serif', fontStyle: 'italic' }}>
                         * The hardest question so far, are you ready?
                     </p>
 
