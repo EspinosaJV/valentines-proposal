@@ -40,7 +40,7 @@ export default function ValentineProposalView({ onNext }: ValentineProposalProps
                     {/* DECORATIVE HEARTS */}
                     {/* MOBILE */}
                     <img src="/assets/mobile-left-heart-shape-icon.png" className="block md:hidden absolute -top-12 -left-4 w-24 h-24 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"/>
-                    <img src="/assets/mobile-right-heart-shape-icon.png" className="block md:hidden absolute -top-12 -right-4 w-24 h-24 object-contain aniamte-[bounce_4s_infinite] z-20 drop-shadow-xl"/>
+                    <img src="/assets/mobile-right-heart-shape-icon.png" className="block md:hidden absolute -top-12 -right-4 w-24 h-24 object-contain animate-[bounce_4s_infinite] z-20 drop-shadow-xl"/>
 
                     {/* DESKTOP */}
                     <img src="/assets/desktop-left-heart-shape-icon.png" className="hidden md:block absolute -top-24 -left-24 w-52 h-52 object-contain animate-[bounce_3s_infinite] z-20 drop-shadow-xl"/>
